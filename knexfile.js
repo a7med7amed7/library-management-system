@@ -4,7 +4,7 @@ module.exports = {
     connection: {
       host: process.env.DB_HOST || 'localhost',
       user: process.env.DB_USERNAME || 'root',
-      password: process.env.DB_PASSWORD || 'rootD',
+      password: process.env.DB_PASSWORD || 'root',
       database: process.env.DB_NAME || 'library_management'
     },
     migrations: {
@@ -19,7 +19,7 @@ module.exports = {
     connection: {
       host: process.env.DB_HOST || 'mysql',
       user: process.env.DB_USERNAME || 'root',
-      password: process.env.DB_PASSWORD || 'rootD',
+      password: process.env.DB_PASSWORD || 'root',
       database: process.env.DB_NAME || 'library_management'
     },
     migrations: {
@@ -34,7 +34,7 @@ module.exports = {
     connection: {
       host: process.env.DB_HOST || 'mysql',
       user: process.env.DB_USERNAME || 'root',
-      password: process.env.DB_PASSWORD || 'rootD',
+      password: process.env.DB_PASSWORD || 'root',
       database: process.env.DB_NAME || 'library_management'
     },
     migrations: {

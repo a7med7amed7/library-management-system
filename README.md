@@ -274,7 +274,7 @@ services:
       PORT: 3030
       JWT_SECRET: secret_eeeh
       DB_USERNAME: root
-      DB_PASSWORD: rootD
+      DB_PASSWORD: root
       DB_NAME: library_management
       DB_HOST: mysql
     ports:
@@ -287,7 +287,7 @@ services:
     image: mysql:8.0.35
     container_name: mysql-server
     environment:
-      MYSQL_ROOT_PASSWORD: rootD
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: library_management
     ports:
       - "3304:3306"

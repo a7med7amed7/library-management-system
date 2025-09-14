@@ -2,12 +2,6 @@ const mysql = require('mysql2/promise');
 const config = require('../knexfile');
 
 async function waitForDatabase(config, maxAttempts = 60) {
-  console.log('host', config.host);
-  console.log('user', config.user);
-  console.log('password', config.password);
-  console.log('database', config.database);
-  console.log('config', { host: config.host, user: config.user, password: config.password });
-  
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       // First, try to connect to MySQL server without specifying database
@@ -19,7 +13,7 @@ async function waitForDatabase(config, maxAttempts = 60) {
         acquireTimeout: 10000,
         timeout: 10000
       });
-      
+
       console.log('Successfully connected to MySQL server');
       await connection.ping();
       console.log('MySQL server is responsive');
@@ -28,7 +22,7 @@ async function waitForDatabase(config, maxAttempts = 60) {
     } catch (error) {
       console.log(`Attempt ${attempt}/${maxAttempts}: MySQL not ready yet...`);
       console.log('Error:', error.message);
-      
+
       // Wait for 2 seconds before next attempt (increased from 1s)
       await new Promise(resolve => setTimeout(resolve, 2000));
     }
@@ -39,10 +33,10 @@ async function waitForDatabase(config, maxAttempts = 60) {
 async function createDatabase() {
   const environment = process.env.NODE_ENV || 'development';
   const { host, user, password, database } = config[environment].connection;
-  
+
   try {
     console.log(`Attempting to connect to MySQL at ${host} with user ${user}`);
-    
+
     // Wait for MySQL to be ready
     await waitForDatabase({ host, user, password, database });
 
@@ -61,7 +55,7 @@ async function createDatabase() {
     // Create database if it doesn't exist
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\``);
     console.log(`Database ${database} created or verified`);
-    
+
     // Test connection to the specific database
     await connection.query(`USE \`${database}\``);
     console.log(`Successfully switched to database ${database}`);
@@ -89,7 +83,7 @@ async function createDatabase() {
 if (require.main === module) {
   createDatabase()
     .then(() => {
-      console.log('✅ Database initialization completed');
+      console.log('Database initialization completed');
       process.exit(0);
     })
     .catch((error) => {
@@ -104,7 +98,7 @@ exports.down = async () => {
   try {
     const environment = process.env.NODE_ENV || 'development';
     const { host, user, password, database } = config[environment].connection;
-    
+
     const connection = await mysql.createConnection({ host, user, password });
     await connection.query(`DROP DATABASE IF EXISTS \`${database}\``);
     await connection.end();
