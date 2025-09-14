@@ -24,6 +24,10 @@ A comprehensive library management system built with Node.js, Express, and MySQL
 - **Comprehensive Testing**: Unit tests with Jest framework
 - **Database Migrations**: Knex.js-based database schema management
 
+## ERD
+
+![ERD](https://private-user-images.githubusercontent.com/75615698/489280418-a5f04f32-107e-4e77-a76f-4fe174e2ea80.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTc4NTc5MDEsIm5iZiI6MTc1Nzg1NzYwMSwicGF0aCI6Ii83NTYxNTY5OC80ODkyODA0MTgtYTVmMDRmMzItMTA3ZS00ZTc3LWE3NmYtNGZlMTc0ZTJlYTgwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA5MTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwOTE0VDEzNDY0MVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQzMzU4OWJlNTg2NDI1ZWMyMDdhNmFkNjg1Y2E1Y2ZjNDVlMzQwNzc4YmJlZjhjNjExMjQ2OTFkYzkxYzFhMzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.6KqpFAaNgGYp_-76pEwfM3cV7vEm4IrmP80yrvCMBqo)
+
 ## Architecture
 
 The application follows a modular architecture with clear separation of concerns:
@@ -97,6 +101,7 @@ src/
 
 3. **Run database migrations**
    ```bash
+   npm run migrate:init
    npm run migrate
    ```
 
@@ -390,28 +395,6 @@ The application includes a health check endpoint:
 ```
 GET /health
 ```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Submit a pull request
-
-## License
-
-This project is licensed under the ISC License.
-
 ## Author
 
 **Ahmed Hamed** - Library Management System
-
-## Support
-
-For support and questions, please contact the development team or create an issue in the repository.
-
----
-
-**Note**: This is a comprehensive library management system designed for educational and production use. Make sure to configure proper security settings and database credentials before deploying to production.
